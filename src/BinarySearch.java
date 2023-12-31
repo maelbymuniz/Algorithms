@@ -5,31 +5,23 @@ public class BinarySearch {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> numeros = new ArrayList<>();
+        int numeros[] = {5, 7, 9, 11, 13, 15};
 
-        for (int i = 0; i < 2000; i++) {
-            numeros.add(i);
-        }
-
-        System.out.println("Quantidade de tentativas:" +  BuscaBinaria(numeros, 300));
+        System.out.println("Quantidade de tentativas:" +  BuscaBinaria(numeros, 13));
 
     }
 
-    private static Integer BuscaBinaria(ArrayList<Integer> numeros, int procurarPor) {
-        int chute;
-        int fim;
-        int meio;
+    private static Integer BuscaBinaria(int numeros[], int procurarPor) {
         int inicio = 0;
-        fim = numeros.size() -1;
-        int contador = 0;
+        int fim = numeros.length -1;
+        int contador = 1;
 
         while (inicio <= fim) {
-            meio = (inicio + fim) / 2;
-            chute = numeros.get(meio);
+            int meio = (inicio + fim) / 2;
 
-            if (chute == procurarPor) {
-               return contador;
-            } else if (chute > procurarPor) {
+            if (numeros[meio] == procurarPor) {
+                return contador;
+            } else if (meio > procurarPor) {
                 fim = meio -1;
             } else {
                 inicio = meio + 1;
